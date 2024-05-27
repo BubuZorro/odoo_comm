@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="timesheet_xml_action" model="ir.actions.act_window">
+        <field name="name">XML Export</field>
+        <field name="res_model">timesheet.xml</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="timesheet_xml_tree" model="ir.ui.view">
+        <field name="name">timesheet_xml_tree</field>
+        <field name="model">timesheet.xml</field>
+        <field name="arch" type="xml">
+            <tree string="Lista report">
+                <field name="name"/>
+                <!-- <field name="id"/>
+                <field name="employee_ids" widget="many2many_tags"/>
+                <field name="timesheet_ids" widget="many2many_tags"/>
+                <field name="date_report_start"/>
+                <field name="date_report_end"/>
+                <field name="user"/> -->
+                <!-- <field name="duration"/> -->
+            </tree>
+        </field>
+    </record>
+
+    <record id="timesheet_xml_view_form" model="ir.ui.view">
+        <field name="name">Righe</field>
+        <field name="model">timesheet.xml</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="name" />
+            </form>
+        </field>
+    </record>
+</odoo>

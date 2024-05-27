@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!-- Action Window -->
+        <record id="action_custom_model" model="ir.actions.act_window">
+            <field name="name">custom.model</field>
+            <field name="res_model">custom_module.custom_model</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create new Custom Model
+                </p>
+            </field>
+        </record>
+
+        <!-- Menu item -->
+        <menuitem id="menu_custom_model" name="Custom Model" parent="base.menu_sales" sequence="20"/>
+        <menuitem id="menu_custom_model_root" name="Custom Model" parent="menu_custom_model" sequence="1"/>
+
+        <menuitem id="menu_custom_model_list" name="Custom Models" parent="menu_custom_model_root" sequence="1" action="action_custom_model"/>
+    </data>
+</odoo>

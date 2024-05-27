@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<odoo>
+      <record model="ir.actions.act_window" id="hr_attendance_report_action">
+        <field name="name">HR Attendance Reports</field>
+        <field name="res_model">hr.attendance.report</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+
+      <record id="hr_attendance_report_tree" model="ir.ui.view">
+        <field name="name">hr.attendance.report.tree</field>
+        <field name="model">hr.attendance.report</field>
+        <field name="arch" type="xml">
+            <tree string="Lista employees">
+                <field name="employee_id"/>
+                <field name="check_in"/>
+                <field name="check_out"/>
+                <!-- <field name="duration"/> -->
+            </tree>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<odoo>
+    <menuitem id="timesheet_xml_menu_action" action="timesheet_xml_action"/>
+    <!-- <menuitem id="timesheet_xml_menu_action" action="timesheet_xml_action" parent="timesheet_menu_root"/> -->
+</odoo>
