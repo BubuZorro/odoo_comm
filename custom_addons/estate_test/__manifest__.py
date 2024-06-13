@@ -28,6 +28,7 @@ Long description of module's purpose
         'views/estate_offer_views.xml',
         'views/estate_menus.xml',
         'views/estate_tree.xml',
+        'views/res_users_views.xml',
         # 'views/templates.xml',
     ],
     # only loaded in demonstration mode

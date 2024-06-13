@@ -52,3 +52,9 @@ class EstatePropertyOffer(models.Model):
             """ if not 'accepted' in self.mapped('property_id.offer_ids.status'):
                 record.property_id.selling_price = 0 """
         return True
+
+    @api.model
+    def create(self, vals):
+        property = self.env['estate.property'].browse(vals['property_id'])
+        property.state = 'off_rec'
+        return super().create(vals)

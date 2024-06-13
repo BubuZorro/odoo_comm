@@ -55,12 +55,13 @@ class EstateProperty(models.Model):
         return True
 
     @api.onchange('garden')
-    def _onchange_garden(self):
-        for record in self:
-            if record.garden:
-                record.garden_area = 10
-                record.garden_orientation = 'north'
-        return True
+    def onchange_garden(self):
+        if self.garden:
+            self.garden_area = 10
+            self.garden_orientation = 'north'
+        else:
+            self.garden_area = ''
+            self.garden_orientation = False
 
     def set_sold(self):
         for record in self:
@@ -82,3 +83,8 @@ class EstateProperty(models.Model):
             if record.selling_price < (record.expected_price * 0.9) and not float_is_zero(record.selling_price, precision_rounding=0.01):
                 raise exceptions.ValidationError("The selling price must be at least 90% of the expected price!")
         return True
+
+    @api.ondelete(at_uninstall=False)
+    def _unlink_if_new_or_canceled(self):
+        if not set(self.mapped("state")) <= {"new", "canceled"}:
+            raise exceptions.UserError("Only new and canceled properties can be deleted.")
